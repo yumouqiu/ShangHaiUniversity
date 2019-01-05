@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R for Data Science</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="R4DS_files/shower-ribbon/package/styles/screen-4x3.css">
+  <link rel="stylesheet" href="R4DS_files/rmdshower/style-common.css">
+  <link rel="stylesheet" href="R4DS_files/rmdshower/style-ribbon.css">
+  <link rel="stylesheet" href="R4DS_files/shower-ribbon/style-override.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <script src="R4DS_files/rmdshower/auto-render.min.js" type="text/javascript"></script>
+  
+  
+    <style type="text/css">
+   div.sourceCode { overflow-x: auto; }
+   table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+     margin: 0; padding: 0; vertical-align: baseline; border: none; }
+   table.sourceCode { width: 100%; line-height: 100%; }
+   td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+   td.sourceCode { padding-left: 5px; }
+   code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+   code > span.dt { color: #902000; } /* DataType */
+   code > span.dv { color: #40a070; } /* DecVal */
+   code > span.bn { color: #40a070; } /* BaseN */
+   code > span.fl { color: #40a070; } /* Float */
+   code > span.ch { color: #4070a0; } /* Char */
+   code > span.st { color: #4070a0; } /* String */
+   code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+   code > span.ot { color: #007020; } /* Other */
+   code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+   code > span.fu { color: #06287e; } /* Function */
+   code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+   code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+   code > span.cn { color: #880000; } /* Constant */
+   code > span.sc { color: #4070a0; } /* SpecialChar */
+   code > span.vs { color: #4070a0; } /* VerbatimString */
+   code > span.ss { color: #bb6688; } /* SpecialString */
+   code > span.im { } /* Import */
+   code > span.va { color: #19177c; } /* Variable */
+   code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+   code > span.op { color: #666666; } /* Operator */
+   code > span.bu { } /* BuiltIn */
+   code > span.ex { } /* Extension */
+   code > span.pp { color: #bc7a00; } /* Preprocessor */
+   code > span.at { color: #7d9029; } /* Attribute */
+   code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+   code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+   code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+   code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  
+  
+  
+</head>
+
+<body class="shower list">
+
+  <header class="caption">
+    <h1>R for Data Science</h1>
+    <p>Yumou Qiu</p>
+  </header>
+
+  
+  
+<section id="r-for-data-science" class="titleslide slide level1"><h2 class="shout">R for Data Science</h2></section><section id="we-will-talk-about" class="slide level2">
+<h2>We will talk about</h2>
+<ul>
+<li>R</li>
+<li>R Markdown</li>
+<li>Git and Github</li>
+<li>Tidyverse package
+<ol type="1">
+<li>GGplot2 for graphs</li>
+<li>How to make maps (interactive)</li>
+</ol></li>
+<li>Web scrapping</li>
+</ul>
+</section>
+<section id="r-r-studio-and-r-markdown" class="titleslide slide level1"><h2 class="shout">R, R studio and R Markdown</h2></section><section id="r-is" class="slide level2">
+<h2>R is …</h2>
+<ul>
+<li><strong>Free</strong> to use</li>
+<li><strong>Extensible</strong>:
+<ul>
+<li>Over 12,000 user contributed add-on packages currently on CRAN!</li>
+<li>12071 different packages available!</li>
+</ul></li>
+<li><strong>Powerful</strong>: With the right tools, get more work done, faster.</li>
+<li><strong>Flexible</strong>: Not a question of <em>can</em>, but <em>how</em>.</li>
+<li><strong>Frustrating</strong>: Flexibility comes at a cost:
+<ul>
+<li>You need to truely understand what you are doing.</li>
+<li>Be careful about the errors in the packages.).</li>
+</ul></li>
+</ul>
+</section><section id="rstudio-is" class="slide level2 white">
+<h2>RStudio is …</h2>
+<p><a href="http://jules32.github.io/resources/RStudio_intro/">From Julie Lowndes</a>:</p>
+<!--- <img class="cover" src="images/airport.png" alt=""> --->
+<blockquote>
+<p style="color:red">
+<b>If R were an airplane, RStudio would be the airport</b>, providing many, many supporting services that make it easier for you, the pilot, to take off and go to awesome places. Sure, you can fly an airplane without an airport, but having those runways and supporting infrastructure is a game-changer.
+</p>
+</blockquote>
+</section><section id="the-rstudio-ide" class="slide level2">
+<h2>The RStudio IDE</h2>
+<p><img class="cover" src="images/rstudio-panes.png" alt=""></p>
+</section><section id="the-rstudio-ide-1" class="slide level2">
+<h2>The RStudio IDE</h2>
+<ol type="1">
+<li><strong>Source editor:</strong> Docking station for multiple files, Useful shortcuts (“Knit”, “Run”), Highlighting/Tab-completion, Code-checking (R, HTML, JS), Debugging features<br />
+</li>
+<li><strong>Console window:</strong> Run the code, Highlighting/Tab-completion, Search recent commands</li>
+<li><strong>Environment pane:</strong> Working datasets/objects, Tools for package development, git, etc</li>
+<li><strong>Other tabs/panes:</strong> Graphics, R documentation, File system navigation/access</li>
+</ol>
+<p class="note">
+<em>Protip:</em> save yourself the headaches figuring out file paths and instead work in an RStudio R project (popup menu at the top left, change your working directory).
+</p>
+</section><section id="markdown" class="slide level2">
+<h2>Markdown</h2>
+<ul>
+<li>Markdown is a particular type of <strong>markup</strong> language.</li>
+<li>Markup languages are designed to <strong>produce documents from plain text</strong>.</li>
+<li>Some of you may be familiar with <strong>LaTeX</strong>. This is another (less human friendly) markup language for creating pdf documents.</li>
+<li>LaTeX gives you much greater control, but it is restricted to pdf and has a much greater learning curve.</li>
+<li><strong>Markdown</strong> is becoming a <strong>standard</strong>. Many websites will generate HTML from Markdown (e.g. GitHub, Stack Overflow, reddit, …).</li>
+</ul>
+</section><section id="markdown-is-easy" class="slide level2">
+<h2>Markdown is easy</h2>
+<pre><code>*italic*
+**bold**
+
+# Header 1
+## Header 2
+### Header 3
+
+- List item 1
+- List item 2
+    - item 2a
+    - item 2b
+
+1. Numbered list item 1
+2. Numbered list item 2
+    - item 2a
+    - item 2b</code></pre>
+<p>Have a look at RStudio’s <a href="https://www.rstudio.com/resources/cheatsheets/">RMarkdown cheat sheet</a></p>
+</section><section id="what-is-rmarkdown" class="slide level2">
+<h2>What is RMarkdown?</h2>
+<ul>
+<li>… an authoring format that enables easy creation of dynamic documents, presentations, and reports from R.</li>
+<li>it combines the core syntax of markdown with embedded R code chunks that are run so their output can be included in the final document.</li>
+<li>R Markdown documents are fully reproducible (they are automatically regenerated whenever underlying R code or data changes).</li>
+</ul>
+</section><section id="section" class="slide level2 white">
+<h2></h2>
+<p><img class="cover" src="images/rmarkdown.png" alt=""></p>
+</section><section id="why-r-markdown" class="slide level2">
+<h2>Why R Markdown?</h2>
+<ul>
+<li><strong>It’s simple.</strong> Focus on writing, rather than debugging silly errors.</li>
+<li><strong>It’s flexible.</strong> Markdown was created to simplify writing HTML, but thanks to pandoc, Markdown converts to many different formats!</li>
+<li><strong>It’s dynamic.</strong> Find a critical error? Get a new dataset? Regenerate your report without copy/paste hell!</li>
+<li><strong>Encourages transparency.</strong> Collaborators (including your future self) will thank you for integrating your analysis &amp; report.</li>
+<li><strong>Enables interactivity/reactivity.</strong> Allow your audience to explore the analysis (rather than passively read it).</li>
+</ul>
+</section><section id="section-1" class="slide level2 white">
+<h2></h2>
+<p><img class="cover" src="images/hello-rmarkdown.png" alt=""></p>
+</section><section id="your-turn-5-min" class="slide level2 white">
+<h2>Your Turn (5 min)</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ol type="1">
+<li><span style="color:white">Open RStudio, create a new project.</span></li>
+<li><span style="color:white">Create a new RMarkdown file and knit it.</span></li>
+<li><span style="color:white">Navigate to the RMarkdown cheat sheet and download a copy (Google for the link!)</span></li>
+<li><span style="color:white">Make changes to the markdown formatting and knit again.</span></li>
+<li><span style="color:white">Export output to different files.</span></li>
+<li><span style="color:white">If you feel adventurous, change some of the R code and knit again.</span></li>
+</ol>
+</section>
+<section id="git-and-github" class="titleslide slide level1"><h2 class="shout">git and github</h2></section><section id="why-git-what-is-git" class="slide level2">
+<h2>Why git? What is git?</h2>
+<ul>
+<li><strong>Git</strong> is a <em>version control system</em> that was created to help developers manage collaborative software projects. Git tracks the evolution of a set of files, called a <strong>repository</strong> or <strong>repo</strong>.</li>
+<li>This helps us
+<ul>
+<li><em>merge</em> conflicts that arise from collaboration</li>
+<li><em>rollback</em> to previous versions of files as necessary</li>
+<li>store <em>master</em> versions of files, no more <code>paper_final_final_I_really_mean_it.docx</code></li>
+</ul></li>
+</ul>
+</section><section id="how-branching" class="slide level2">
+<h2>How? …Branching</h2>
+<p><br> <br> <br> <img src="images/branching.png" width=800></p>
+</section><section id="github" class="slide level2">
+<h2>GitHub</h2>
+<p><a href="https://github.com">GitHub</a> is one of many hosting services (others are e.g. Bitbucket, GitLab, etc.).</p>
+<p><img src="images/github.png" width=400></p>
+</section><section id="your-turn-5-min-1" class="slide level2">
+<h2>Your Turn (5 min)</h2>
+<p><img src="images/stones-faded.png" class="cover"></p>
+<p>This Your Turn is just a prep to get ready for the lab later. It’ll take a couple of minutes of your time, but may need to wait for email confirmation from github …</p>
+<p>Here goes: Do you have a github account?</p>
+<ul>
+<li>No? Create a <em>free</em> account at <a href="https://github.com/" class="uri">https://github.com/</a></li>
+<li>Yes? Then log into it.
+<ul>
+<li>Do you remember your login and password?</li>
+</ul></li>
+</ul>
+</section><section id="git-terminology" class="slide level2">
+<h2>Git Terminology</h2>
+<p>from <a href="https://help.github.com/articles/github-glossary/">github glossary</a></p>
+<ul>
+<li><strong>Repository:</strong> the basic element of git - like a project’s folder. A repository contains all of the project files, and their <strong>revision history</strong>. One person owns a repository, multiple people can collaborate. Can be either public or private.</li>
+<li><strong>Remote:</strong> This is the version of something that is hosted on a server. It can be (and usually is) connected to a local clone.</li>
+<li><strong>Clone:</strong> A local copy of a repository that lives on your computer instead of on a website’s server somewhere</li>
+<li><strong>Fork:</strong> a remote copy of a repository stored under your account. Forks allow you to freely make changes to a project without affecting the original(master).</li>
+</ul>
+</section><section id="terminology-contd" class="slide level2">
+<h2>Terminology (cont’d)</h2>
+<ul>
+<li><strong>Pull:</strong> When you are fetching changes from the remote repository and merging them with your local clone.</li>
+<li><strong>Commit:</strong> A checkpoint for the local clone to save changes to a file (or set of files). Every time you commit, git creates a unique ID that allows you to keep record of what changes were made when and by who.</li>
+<li><strong>Push:</strong> Sending your committed changes to the remote repository.</li>
+</ul>
+</section><section id="terminology-contd-1" class="slide level2">
+<h2>Terminology (cont’d)</h2>
+<ul>
+<li><strong>Pull Request:</strong> Proposed changes to a repository submitted by a user and accepted or rejected by a repository’s collaborators.</li>
+<li><strong>Issue:</strong> Issues are suggested improvements, tasks or questions related to the repository.</li>
+</ul>
+</section><section id="repositories" class="slide level2">
+<h2>Repositories</h2>
+<p>By default, all materials on GitHub are <strong>public</strong>. This is <em>good</em> because you are getting your work out there and contributing to the open source community!</p>
+<p>If you need <strong>private</strong> repos, checkout <a href="https://education.github.com/">GitHub for Education</a> - free private repos for students/postdocs/professors.</p>
+<p><img src="images/github-icon.png" /></p>
+</section><section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li>Jenny Bryant’s: Happy Git with R <a href="http://happygitwithr.com/" class="uri">http://happygitwithr.com/</a></li>
+<li>Data Carpentry’s tutorials: <a href="https://github.com/datacarpentry" class="uri">https://github.com/datacarpentry</a></li>
+<li>Reproducible Science Curriculum intitative: <a href="https://github.com/Reproducible-Science-Curriculum" class="uri">https://github.com/Reproducible-Science-Curriculum</a></li>
+</ul>
+</section>
+<section id="welcome-r" class="titleslide slide level1"><h2 class="shout">Welcome R</h2></section><section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li>R is a calculator</li>
+<li>R functions, loop</li>
+<li>five commands to look at objects</li>
+<li>extracting pieces</li>
+<li>a first glimpse at data</li>
+</ul>
+</section><section id="the-r-language" class="slide level2">
+<h2>The R language</h2>
+<ul>
+<li>Learning a new language: grammar, vocabulary</li>
+<li>Loading, examining, summarizing data</li>
+<li>Analyzing data</li>
+<li>Getting help <!--- - Miscellaneous useful stuff ---></li>
+</ul>
+</section><section id="section-2" class="slide level2 white">
+<h2></h2>
+<p><img class="cover" src="images/language.png" alt="", width=2000></p>
+</section><section id="grammar" class="slide level2">
+<h2>Grammar</h2>
+<ul>
+<li>Basic algebra is the same as calculator/mathematics</li>
+<li>explicit operators: <code>2*x</code> not <code>2x</code>, <code>2^p</code> instead of <span class="math inline">\(2^p\)</span></li>
+<li>Applying a function is similar</li>
+<li>Making a variable, use <code>&lt;-</code> or <code>=</code></li>
+<li>Everything in R is a vector</li>
+</ul>
+</section><section id="examples" class="slide level2">
+<h2>Examples</h2>
+<div class="double">
+<p class="double-flow">
+<p><strong>Math</strong></p>
+<p>Assignments <span class="math inline">\(x = \frac{2}{3}\)</span></p>
+<p>Functions <span class="math inline">\(\sqrt{x}\)</span></p>
+<p>Vectors <span class="math inline">\(y = \left( 1, 2, 3, 5\right)^{\prime}\)</span></p>
+<p>Indices <span class="math inline">\(y_1\)</span></p>
+<p>Mathematical Operators <span class="math inline">\(\sum_{i=1}^{4} y\)</span></p>
+<span class="math inline">\(2y\)</span>
+</p>
+<p class="double-flow">
+<p><strong>Code</strong></p>
+<p>x &lt;- 2/3 or x = 2/3</p>
+<p>sqrt(x)</p>
+<p>y = c(1,2,3,5)</p>
+<p>y[1]</p>
+<p>sum(y)</p>
+<p>2*y</p>
+</p>
+</div>
+</section><section id="your-turn-5-min-2" class="slide level2 white">
+<h2>Your Turn (5 min)</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Introduce vector <span class="math inline">\(x\)</span> defined as <span class="math inline">\(x = (4, 1, 3, 9)^{\prime}\)</span></span></li>
+<li><span style="color:white">Introduce vector <span class="math inline">\(y\)</span> defined as <span class="math inline">\(y = (1, 2, 3, 5)^{\prime}\)</span></span></li>
+<li><span style="color:white">Calculate the Euclidean distance between the two vectors <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, defined as <span class="math display">\[
+d = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
+\]</span></span></li>
+<li><span style="color:white">What does a negative index do?</span></li>
+<li><span style="color:white">What happens if an index is repeated multiple times, i.e. what is <code>x[c(1,1,1,2,2,2,3,3,3)]</code>?</span></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">9</span>)
+y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>)
+d =<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">sum</span>((x <span class="op">-</span><span class="st"> </span>y)<span class="op">^</span><span class="dv">2</span>))
+
+x</code></pre></div>
+<pre><code>## [1] 4 1 3 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="op">-</span><span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 4 3 9</code></pre>
+</section><section id="vocabulary" class="slide level2">
+<h2>Vocabulary</h2>
+<ul>
+<li>What verbs (=functions) do you need to know?</li>
+<li>Loading data</li>
+<li>Accessing parts of things</li>
+<li>calculation</li>
+<li>Statistical summaries</li>
+<li>…</li>
+</ul>
+</section><section id="r-reference-card" class="slide level2">
+<h2>R Reference Card</h2>
+<ul>
+<li>Download the R Reference Card from <a href="http://cran.r-project.org/doc/contrib/Short-refcard.pdf" class="uri">http://cran.r-project.org/doc/contrib/Short-refcard.pdf</a></li>
+<li>Open/Print it so that you can glance at it while working</li>
+</ul>
+</section><section id="r-functions-define-your-own-function" class="slide level2">
+<h2>R functions – Define your own function</h2>
+<p>You have seen the build-in functions in R</p>
+<ul>
+<li><code>sqrt()</code></li>
+<li><code>sum()</code></li>
+</ul>
+<p>How to build your own functions?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">q =<span class="st"> </span><span class="cf">function</span>(x, y){
+  q =<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>y<span class="op">^</span><span class="dv">2</span>
+  <span class="kw">return</span>(q)
+}
+
+<span class="kw">q</span>(<span class="dv">1</span>, <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+</section><section id="general-language" class="slide level2">
+<h2>General language</h2>
+<pre><code>FunctionName = function(arg1, arg2, ...){
+  ... ...
+  return(...)
+}</code></pre>
+<ul>
+<li><code>FunctionName</code> is chosen by your own</li>
+<li><code>arg1</code>, <code>arg2</code> can be vectors or matrices</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">q</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</code></pre></div>
+<pre><code>## [1] 2 5</code></pre>
+<ul>
+<li><code>return(...)</code> is the final output of your function</li>
+<li>use the function: <code>FunctionName(arg1, arg2, ...)</code></li>
+</ul>
+</section><section id="looping" class="slide level2">
+<h2>Looping</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="dv">10</span>)
+b =<span class="st"> </span><span class="kw">c</span>()
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="kw">length</span>(a)){
+  b[i] =<span class="st"> </span>a[i]<span class="op">^</span><span class="dv">2</span>
+  b[i]
+  <span class="co">#print(b[i])</span>
+  <span class="co">#cat(&quot;Iteration = &quot;, i, &quot;, value =&quot;, b[i], &quot;\n&quot;)</span>
+}
+
+b</code></pre></div>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a<span class="op">^</span><span class="dv">2</span></code></pre></div>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+</section><section id="extract-from-a-vectormatrix" class="slide level2">
+<h2>Extract from a vector/matrix</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)
+a[<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</code></pre></div>
+<pre><code>## [1] 1 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="dv">9</span>), <span class="dv">3</span>, <span class="dv">3</span>)
+A</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A[<span class="dv">1</span>, <span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</section><section id="section-3" class="slide level2">
+<h2></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="dv">9</span>), <span class="dv">3</span>, <span class="dv">3</span>)
+A</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A[<span class="dv">1</span>, ]</code></pre></div>
+<pre><code>## [1] 1 4 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A[, <span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A[<span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">2</span> <span class="op">:</span><span class="st"> </span><span class="dv">3</span>] <span class="co">#equivalent to A[c(1, 2), c(2, 3)]</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    4    7
+## [2,]    5    8</code></pre>
+</section><section id="your-turn-10-min" class="slide level2 white">
+<h2>Your Turn (10 min)</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Write a function to calculate the variance of the data <span class="math inline">\(X = (x_{1}, \ldots, x_{n})^{\prime}\)</span>: <span class="math display">\[Var(X) = \frac{1}{n - 1}\sum_{i = 1}^{n}(x_{i} - \bar{x})^2  \ for \  \bar{x} = \frac{1}{n}\sum_{i = 1}^{n}x_{i}.\]</span></span></li>
+<li><span style="color:white">Evaluate your function on <span class="math inline">\(X = (1, 2, \ldots, 10)^{\prime}\)</span>.</span></li>
+<li><span style="color:white">Try the R build-in function <code>var()</code>. Do you have the same result?</span></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">variance =<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="co"># input x is a vector</span>
+  n =<span class="st"> </span><span class="kw">length</span>(x)
+  v =<span class="st"> </span><span class="kw">sum</span>((x <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(x))<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span>(n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)
+  <span class="kw">return</span>(v)
+}
+
+x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="dv">10</span>)
+<span class="kw">variance</span>(x)</code></pre></div>
+<pre><code>## [1] 9.166667</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(x) <span class="co"># var() is the built-in function for variance calculation in R</span></code></pre></div>
+<pre><code>## [1] 9.166667</code></pre>
+</section><section id="very-basics" class="slide level2">
+<h2>Very basics</h2>
+<h3 id="getting-help-within-r">Getting help within R</h3>
+<p>If you want to know what a specific <code>command</code> is doing:</p>
+<pre><code>?command
+??command
+help(command) 
+help.search(command)</code></pre>
+<h3 id="getting-out">Getting out</h3>
+<pre><code>q()</code></pre>
+<p>Quits out of the console</p>
+</section><section id="loading-class-data" class="slide level2">
+<h2>Loading class data</h2>
+<ul>
+<li>Some R packages have in-built datasets</li>
+<li>For this class, there is an R package available on github</li>
+<li>Installing/Updating <code>classdata</code> package (once every so often):</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#devtools::install_github(&quot;heike/classdata&quot;)</span></code></pre></div>
+<ul>
+<li>Make the data available (every time you start R):</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(classdata)</code></pre></div>
+</section><section id="your-turn-5-min-3" class="slide level2 white">
+<h2>Your Turn (5 min)</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<p><span style="color:white">Install the package <code>classdata</code> on your machine <br> <span style="color:white">Make the package active in your current R session:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(classdata)</code></pre></div>
+<p><span style="color:white">Check the R help on the dataset <code>cities</code><br> <span style="color:white">What happens if you just type in the name of the dataset?</p>
+</section><section id="inspecting-objects" class="slide level2">
+<h2>Inspecting objects</h2>
+<p>for object <code>x</code>, we can try out the following commands:</p>
+<ul>
+<li><code>x</code></li>
+<li><code>head(x)</code></li>
+<li><code>summary(x)</code></li>
+<li><code>str(x)</code></li>
+<li><code>dim(x)</code></li>
+</ul>
+<p><font color="darkblue">Try these commands out for yourself on the <code>cities</code> data.</font></p>
+</section><section id="the-cities-data" class="slide level2">
+<h2>The <code>cities</code> data</h2>
+<ul>
+<li><code>cities</code> is a data frame with columns (variables) and rows (records)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cities)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    1207 obs. of  14 variables:
+##  $ City               : chr  &quot;Adel&quot; &quot;Albia&quot; &quot;Ames&quot; &quot;Amosa&quot; ...
+##  $ Population         : int  4067 3699 52541 5646 36876 2464 32059 2611 12899 25571 ...
+##  $ Violent.crime      : int  3 9 147 5 36 0 75 2 33 120 ...
+##  $ Murder             : int  0 0 0 0 0 0 1 0 0 1 ...
+##  $ Rape               : int  0 0 24 0 6 0 9 1 15 8 ...
+##  $ Robbery            : int  0 0 17 0 6 0 13 0 0 13 ...
+##  $ Aggravated.assault : int  3 9 106 5 24 0 52 1 18 98 ...
+##  $ Property.crime     : int  114 67 1465 99 806 18 832 23 412 1226 ...
+##  $ Burglary           : int  13 11 363 16 140 10 156 7 112 296 ...
+##  $ Larceny.theft      : int  93 53 1061 81 626 4 644 15 285 881 ...
+##  $ Motor.vehicle.theft: int  8 3 41 2 40 4 32 1 15 49 ...
+##  $ Arson              : int  0 2 5 3 4 0 6 0 3 23 ...
+##  $ State              : chr  &quot;iowa&quot; &quot;iowa&quot; &quot;iowa&quot; &quot;iowa&quot; ...
+##  $ Year               : int  2006 2006 2006 2006 2006 2006 2006 2006 2006 2006 ...</code></pre>
+</section><section id="extracting-parts-of-objects" class="slide level2">
+<h2>Extracting parts of objects</h2>
+<p>For object <code>x</code>, we can extract parts in the following manner:</p>
+<pre><code>x$variable
+x[, &quot;variable&quot;]
+x[rows, columns]
+x[1:5, 2:3]
+x[c(1,5,6), c(&quot;State&quot;,&quot;Year&quot;)]
+x$variable[rows]</code></pre>
+<p><code>rows</code> and <code>columns</code> are vectors of indices.</p>
+<p>For example, the codes in the same line give the same results:</p>
+<pre><code>cities$Population, cities[, &quot;Population&quot;], cities[, 2];
+cities$City[c(2 : 10)], cities[c(2 : 10), &quot;City&quot;], cities[c(2 : 10), 1]</code></pre>
+<p><font color="darkblue">Try these commands out for yourself on the <code>cities</code> data.</font></p>
+</section><section id="statistical-summaries" class="slide level2">
+<h2>Statistical summaries</h2>
+<p>Elements of the five point summary: <br> <code>mean, median, min, max, quartiles</code><br></p>
+<p>Other summary statistics:<br> <code>range, sd, var</code><br></p>
+<p>Summaries of dependence between two variables:<br> <code>cor, cov</code></p>
+</section><section id="your-turn" class="slide level2 white">
+<h2>Your turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Print and take a look at the first 10 data records of the <code>cities</code> data</li>
+<li><span style="color:white">Compute mean and standard deviation for the number of burglaries. Why do you get NAs? (read <code>?NA</code>)</li>
+<li><span style="color:white">Advanced: Read <code>?mean</code> and <code>?sd</code>, and fix missing value problem</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(classdata)
+<span class="kw">head</span>(cities, <span class="dv">10</span>)</code></pre></div>
+<pre><code>##          City Population Violent.crime Murder Rape Robbery
+## 1        Adel       4067             3      0    0       0
+## 2       Albia       3699             9      0    0       0
+## 3        Ames      52541           147      0   24      17
+## 4       Amosa       5646             5      0    0       0
+## 5      Ankeny      36876            36      0    6       6
+## 6     Belmond       2464             0      0    0       0
+## 7  Bettendorf      32059            75      1    9      13
+## 8  Bloomfield       2611             2      0    1       0
+## 9       Boone      12899            33      0   15       0
+## 10 Burlington      25571           120      1    8      13
+##    Aggravated.assault Property.crime Burglary Larceny.theft
+## 1                   3            114       13            93
+## 2                   9             67       11            53
+## 3                 106           1465      363          1061
+## 4                   5             99       16            81
+## 5                  24            806      140           626
+## 6                   0             18       10             4
+## 7                  52            832      156           644
+## 8                   1             23        7            15
+## 9                  18            412      112           285
+## 10                 98           1226      296           881
+##    Motor.vehicle.theft Arson State Year
+## 1                    8     0  iowa 2006
+## 2                    3     2  iowa 2006
+## 3                   41     5  iowa 2006
+## 4                    2     3  iowa 2006
+## 5                   40     4  iowa 2006
+## 6                    4     0  iowa 2006
+## 7                   32     6  iowa 2006
+## 8                    1     0  iowa 2006
+## 9                   15     3  iowa 2006
+## 10                  49    23  iowa 2006</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(cities<span class="op">$</span>Burglary)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(cities<span class="op">$</span>Burglary)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(cities<span class="op">$</span>Burglary, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 112.6739</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(cities<span class="op">$</span>Burglary, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 273.271</code></pre>
+</section><section id="data-management-in-r-the-tidyverse" class="slide level2">
+<h2>Data management in R: the tidyverse</h2>
+<p><img src="images/tidyverse.jpeg" alt="" width=600></p>
+</section><section id="tidyverse" class="slide level2">
+<h2><code>tidyverse</code></h2>
+<p><code>tidyverse</code> is a package bundling several other R packages:</p>
+<ul>
+<li><code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, <code>purrr</code>, …</li>
+<li>share common data representations and API, i.e. work well together</li>
+<li>see <a href="https://github.com/hadley/tidyverse" class="uri">https://github.com/hadley/tidyverse</a> for more information</li>
+</ul>
+<p>Summaries</p>
+<ul>
+<li>numerical summaries - <a href="">elements</a> of <code>dplyr</code> and <code>tidyr</code></li>
+<li>graphical summaries - <a href="">visualizations</a> with <code>ggplot2</code></li>
+</ul>
+</section>
+<section id="ggplot2" class="titleslide slide level1"><h2 class="shout">GGplot2</h2></section><section id="data-exploration" class="slide level2">
+<h2>Data Exploration</h2>
+<ul>
+<li>asking good questions is important for any data exploration: “your data won’t speak unless you ask the right questions”</li>
+<li>a data exploration is a cycle of asking questions, looking at the answers, and deriving new questions from them</li>
+<li>for a sound exploration: start by checking individual variables, then move on to higher dimensions</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(classdata)
+<span class="kw">head</span>(fbiwide)</code></pre></div>
+<pre><code>##     State Abb Year Population Aggravated.assault Burglary Larceny.theft
+## 1 Alabama  AL 1961    3302000               4255    11205         18801
+## 2 Alabama  AL 1962    3358000               3995    11722         21306
+## 3 Alabama  AL 1963    3347000               4755    12614         22874
+## 4 Alabama  AL 1964    3407000               5555    15898         26713
+## 5 Alabama  AL 1965    3462000               5162    16398         28115
+## 6 Alabama  AL 1966    3517000               6249    18551         30583
+##   Legacy.rape Motor.vehicle.theft Murder Rape Robbery
+## 1         252                2535    427   NA     630
+## 2         218                2801    316   NA     754
+## 3         192                3033    340   NA     828
+## 4         397                3679    316   NA     992
+## 5         367                3702    395   NA     992
+## 6         341                4606    384   NA    1124</code></pre>
+</section><section id="plan-for-answers" class="slide level2">
+<h2>Plan for answers</h2>
+<ul>
+<li>Explore how one (or more) variables are distributed: <em>barchart or histogram</em></li>
+<li>Explore how two variables are related: <em>scatterplot, boxplot, tile plot</em></li>
+<li>Explore how two variables are related, conditioned on other variables: <em>faceting, color &amp; other aesthetics</em></li>
+</ul>
+<p>We will be using the <code>ggplot2</code> framework for plotting</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+</section><section id="why-ggplot2" class="slide level2">
+<h2>Why <code>ggplot2</code></h2>
+<ul>
+<li>Wildly popular package for statistical graphics: over 2.5 million downloads from CRAN in 2017 (several thousand times per day)</li>
+<li>Developed by Hadley Wickham (An ISU Alumni)</li>
+<li>Designed to adhere to good graphical practices</li>
+<li>Constructs plots using the concept of layers</li>
+<li>Supports a wide variety plot types and extensions</li>
+<li>Ported to different languages, e.g. <code>ggpy</code> </li>
+<li><a href="http://ggplot2.org/book/" class="uri">http://ggplot2.org/book/</a> or Hadley’s book <em>ggplot2: Elegant Graphics for Data Analysis</em> for reference</li>
+</ul>
+</section><section id="ggplot-function" class="slide level2">
+<h2><code>ggplot</code> Function</h2>
+<p>The <code>ggplot</code> function is the basic workhorse of ggplot2</p>
+<ul>
+<li>Produces all plot types available with ggplot2</li>
+<li>Allows for plotting options within the function statement</li>
+<li>Creates an object that can be saved</li>
+<li>Plot layers can be added to modify plot complexity</li>
+</ul>
+</section><section id="ggplot-structure" class="slide level2">
+<h2><code>ggplot</code> Structure</h2>
+<p>The <code>ggplot</code> function has the basic syntax:</p>
+<p><code>ggplot(data, mappings) + geom_type(options)</code></p>
+<ul>
+<li>data: dataset to be used</li>
+<li>mappings: determines which variables are connected to which plot elements, mappings are done with <code>aes()</code></li>
+<li>type: determines type of the plot, e.g. <code>point</code>, <code>line</code>, <code>bar</code></li>
+<li>options: there are so, so many options!</li>
+</ul>
+</section><section id="scatterplots-in-ggplot2" class="slide level2">
+<h2>Scatterplots in <code>ggplot2</code></h2>
+<p><code>aes</code> allows us to specify mappings; scatterplots need a mapping for <code>x</code> and a mapping for <code>y</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> fbiwide, <span class="kw">aes</span>(<span class="dt">x =</span> Burglary, <span class="dt">y =</span> Murder)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-15-1.png" width="336" /></p>
+</section><section id="your-turn-1" class="slide level2 white">
+<h2>Your turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Draw a scatterplot of the number of burglaries by murders.</span></li>
+<li><span style="color:white">Adjust the numbers of the above scatterplot to show log transformed numbers. How can we interpret the numbers on the axes?</span></li>
+<li><span style="color:white">Draw a scatterplot of the log transformed number of burglaries by motor vehicle thefts.</span></li>
+</ul>
+</section><section id="revision---interpreting-scatterplots" class="slide level2">
+<h2>Revision - Interpreting Scatterplots</h2>
+<ul>
+<li>Big patterns
+<ul>
+<li>Form and direction</li>
+<li>Strength</li>
+</ul></li>
+<li>Small patterns</li>
+<li>Deviations from the pattern
+<ul>
+<li>Outliers</li>
+</ul></li>
+</ul>
+</section><section id="aesthetics" class="slide level2">
+<h2>Aesthetics</h2>
+<p>Can map other variables to size, colour, shape, ….</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(Burglary), <span class="dt">y =</span> <span class="kw">log</span>(Motor.vehicle.theft),
+           <span class="dt">colour=</span>Year), <span class="dt">data=</span>fbiwide) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-17-1.png" width="336" /></p>
+</section><section id="your-turn-2" class="slide level2 white">
+<h2>Your turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Draw a scatterplot of the log transformed number of burglaries by motor vehicle thefts. Map the state variable to colour. Why is this a terrible idea?</span></li>
+<li><span style="color:white">Draw a scatterplot of the log transformed number of burglaries by motor vehicle thefts. Map Population to size. How do we interpret the output?</span></li>
+<li><span style="color:white">Which other aesthetics are there? Have a look at the <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio cheat sheet on visualization</a> </span></li>
+</ul>
+<p><span style="color:white"><strong>Stretch goal</strong>: Draw a histogram of the state populations. </span></p>
+</section><section id="your-turn-3" class="slide level2 white">
+<h2>Your turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Compare the log transformed number of burglaries by motor vehicle thefts over years. How to make a nice plot?</span></li>
+<li><span style="color:white">Compare the log transformed number of burglaries by motor vehicle thefts over States, coloured by years.</span></li>
+<li><span style="color:white">Now, only focus on comparing California, Colorado, Iowa, Illinois, District of Columbia and New York. </span></li>
+<li><span style="color:white">We all know population is an important factor. How to compare different states by standardized population? </span></li>
+</ul>
+</section><section id="facetting" class="slide level2">
+<h2>Facetting</h2>
+<p>Can facet to display plots for different subsets:</p>
+<p><code>facet_wrap</code>, <code>facet_grid</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> Murder), <span class="dt">data=</span>fbiwide) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>State, <span class="dt">scale =</span> <span class="st">&quot;free_y&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-20-1.png" width="768" /></p>
+</section><section id="setup-of-facet_wrap-and-facet_grid" class="slide level2">
+<h2>Setup of <code>facet_wrap</code> and <code>facet_grid</code></h2>
+<ul>
+<li><code>facet_grid</code> has formula specification: <code>rows ~ cols</code></li>
+<li><code>facet_wrap</code> has specification <code>~ variables</code></li>
+<li>multiple variables (in either specification) are included in form of a sum, i.e. <code>rowvar1 + rowvar2 ~ colvar1+ colvar2</code></li>
+<li>no variable (in <code>facet_grid</code>) is written as <code>.</code>, i.e. <code>rowvar ~ .</code> are plots in a single column.</li>
+</ul>
+</section><section id="your-turn-4" class="slide level2 white">
+<h2>Your turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000> Use the <code>fbiwide</code> data from the package <code>classdata</code> for this your turn.</p>
+<ul>
+<li><span style="color:white">Plot the number of car thefts by year for each state (facet by state).</font></li>
+<li><span style="color:white">The numbers are dominated by the number of thefts in California, New York, and Texas. Use a log-scale for the y-axis. Does that help?</font></li>
+<li><span style="color:white">Another approach to fix the domination by CA, TX and NY: Read up on the parameters in <code>facet_wrap</code> to find a way to give each panel its own scale. Comment on the difference in the results.</font></li>
+</ul>
+</section><section id="facets-vs-aesthetics" class="slide level2">
+<h2>Facets vs aesthetics?</h2>
+<ul>
+<li>Will need to experiment as to which one answers your question/tells the story best</li>
+<li>Rule of thumb:
+<ul>
+<li>aesthetics: explore relationship</li>
+<li>Facets: comparison</li>
+</ul></li>
+</ul>
+</section><section id="boxplots" class="slide level2">
+<h2>Boxplots</h2>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-22-1.png" width="768" /></p>
+</section><section id="boxplot-definition" class="slide level2">
+<h2>Boxplot definition</h2>
+<ul>
+<li>definition by J.W. Tukey (1960s, EDA 1977)</li>
+</ul>
+<p><img src="images/boxplots-definition.png" /></p>
+</section><section id="boxplots-1" class="slide level2">
+<h2>Boxplots</h2>
+<ul>
+<li>are used for group comparisons and outlier identifications</li>
+<li>usually only make sense in form of side-by-side boxplots.</li>
+<li><code>geom_boxplot</code> in ggplot2 needs <code>x</code> and <code>y</code> variable (<code>y</code> is measurement, <code>x</code> is categorical)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> fbi, <span class="kw">aes</span>(<span class="dt">x =</span> Type, <span class="dt">y =</span> <span class="kw">log10</span>(Count))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+</section><section id="your-turn-5" class="slide level2 white">
+<h2>Your turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Using ggplot2, draw side-by-side boxplots of the number of robberies by state. Use a log transformation on y and compare results.</font></li>
+<li><span style="color:white"><strong>Stretch goal:</strong> Compare rates of robberies by state, i.e. adjust robberies by the state population. Then plot side-by-side boxplots. </font></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fbi1 =<span class="st"> </span>fbi[fbi<span class="op">$</span>Type <span class="op">==</span><span class="st"> &quot;Robbery&quot;</span>, ]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> fbi1, <span class="kw">aes</span>(<span class="dt">x =</span> State, <span class="dt">y =</span> Count)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-24-1.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> fbi1, <span class="kw">aes</span>(<span class="dt">x =</span> State, <span class="dt">y =</span> <span class="kw">log</span>(Count))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-24-2.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> fbi1, <span class="kw">aes</span>(<span class="dt">x =</span> State, <span class="dt">y =</span> Count <span class="op">/</span><span class="st"> </span>Population)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-24-3.png" width="768" /></p>
+</section><section id="boxplots---pros-and-cons" class="slide level2">
+<h2>Boxplots - Pros and Cons</h2>
+<ul>
+<li><strong>Pros:</strong>
+<ul>
+<li>Symmetry vs Skewness</li>
+<li>Outliers</li>
+<li>Quick Summary</li>
+<li>Comparisons across multiple Treatments (side by side boxplots)</li>
+</ul></li>
+<li><strong>Cons:</strong>
+<ul>
+<li>Boxplots hide multiple modes and gaps in the data</li>
+<li>Boxplots cannot tell the detail distribution of the data</li>
+</ul></li>
+</ul>
+</section><section id="univariate-plots" class="slide level2">
+<h2>Univariate plots</h2>
+<p>Histograms:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(fbiwide, <span class="kw">aes</span>(<span class="dt">x =</span> Motor.vehicle.theft)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth=</span><span class="dv">5000</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;binwidth = 5000&quot;</span>)</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-25-1.png" width="384" /></p>
+</section><section id="univariate-plots-1" class="slide level2">
+<h2>Univariate plots</h2>
+<p>Histograms:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(fbiwide, <span class="kw">aes</span>(<span class="dt">x =</span> Motor.vehicle.theft)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth=</span><span class="dv">1000</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;binwidth = 1000&quot;</span>)</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-26-1.png" width="384" /></p>
+</section><section id="barchart" class="slide level2">
+<h2>Barchart</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(fbi, <span class="kw">aes</span>(<span class="dt">x =</span> Type)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">weight=</span> Count)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-27-1.png" width="768" /></p>
+</section><section id="histograms-and-barcharts" class="slide level2">
+<h2>Histograms and barcharts</h2>
+<p>What do we look for?</p>
+<ul>
+<li>Symmetry/Skewness</li>
+<li>Modes, Groups (big pattern: where is the bulk of the data?)</li>
+<li>Gaps &amp; Outliers (deviation from the big pattern: where are the other points?)</li>
+</ul>
+<p>For the histogram, always choose the binwidth consciously</p>
+<p>In a barchart, choose the order of the categories consciously (later)</p>
+</section><section id="your-turn-6" class="slide level2 white">
+<h2>Your turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Use the <code>fbi</code> data set to draw a barchart of the variable <code>Violent Crime</code>. Make the height of the bars dependent on the number of reports (use <code>weight</code>). Then facet by type (does the result match your expectation? good! get rid of facetting). Color bars by <code>Type</code>. </font></li>
+<li><span style="color:white">Use the <code>fbi</code> data set to draw a histogram of the number of reports. Facet by type, make sure to use individual scales for the panels. </font></li>
+</ul>
+</section><section id="more-on-ggplot2" class="slide level2">
+<h2>More on <code>ggplot2</code></h2>
+<ul>
+<li>reference/document: <a href="http://ggplot2.tidyverse.org/reference/" class="uri">http://ggplot2.tidyverse.org/reference/</a></li>
+<li>RStudio cheat sheet for <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2</a></li>
+<li>ggplot2 mailing list: <a href="https://groups.google.com/forum/?fromgroups#!forum/ggplot2" class="uri">https://groups.google.com/forum/?fromgroups#!forum/ggplot2</a></li>
+</ul>
+</section>
+<section id="polishing-plots" class="titleslide slide level1"><h2 class="shout">Polishing plots</h2></section><section id="outline-1" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li>color choices</li>
+<li>themes</li>
+</ul>
+</section><section id="ggplot2-provides-defaults" class="slide level2">
+<h2><code>ggplot2</code> provides defaults …</h2>
+<ul>
+<li>but every aspect of the plot can be changed</li>
+<li>colors are controlled through <strong>scales</strong></li>
+<li><strong>themes</strong> control presentation of non-data elements</li>
+</ul>
+</section>
+<section id="colors" class="titleslide slide level1"><h2 class="shout">Colors</h2></section><section id="color-scales" class="slide level2">
+<h2>Color Scales</h2>
+<p>default continuous colour scheme</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+p1 &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2008</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> cty, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> cyl)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p1 <span class="op">+</span><span class="st"> </span><span class="kw">scale_colour_continuous</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-30-1.png" width="768" /></p>
+</section><section id="color-scales-1" class="slide level2">
+<h2>Color Scales</h2>
+<p>default discrete colour scheme</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2008</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> cty, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> <span class="kw">factor</span>(cyl))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 <span class="op">+</span><span class="st"> </span><span class="kw">scale_colour_discrete</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-32-1.png" width="768" /></p>
+</section><section id="color-scales-2" class="slide level2">
+<h2>Color Scales</h2>
+<ul>
+<li>Colors are controlled through scales <code>scale_colour_discrete</code> (<code>scale_colour_hue</code>) and <code>scale_colour_continuous</code> (<code>scale_colour_gradient</code>) are the default choices for factor variables and numeric variables</li>
+<li>we can change parameters of the default scale, or we can change the scale function</li>
+</ul>
+</section><section id="colour-gradients" class="slide level2">
+<h2>Colour gradients</h2>
+<p><code>scale_colour_gradient (..., low = &quot;#132B43&quot;, high = &quot;#56B1F7&quot;, space = &quot;Lab&quot;, na.value = &quot;grey50&quot;, guide = “colourbar&quot;)</code></p>
+<ul>
+<li>colors can be specified by hex code, name or through rgb()</li>
+<li>gradient goes from low to high - that should match the interpretation of the mapped variable</li>
+</ul>
+</section><section id="colour-gradients---divergent-scheme" class="slide level2">
+<h2>Colour gradients - divergent scheme</h2>
+<p><code>scale_colour_gradient2(..., low = muted(&quot;red&quot;), mid = &quot;white&quot;,   high = muted(&quot;blue&quot;), midpoint = 0, space = &quot;Lab&quot;, na.value = &quot;grey50&quot;,  guide = &quot;colourbar&quot;)</code></p>
+<ul>
+<li>midpoint is value of the ‘neutral’ color gradient2 is a divergent color scheme</li>
+<li>best matches a variable that goes from large negative to zero to large positive (or below mean, above mean)</li>
+</ul>
+</section><section id="discrete-color-schemes" class="slide level2">
+<h2>Discrete color schemes</h2>
+<p><code>scale_color_hue (..., h = c(0, 360) + 15, c = 100, l = 65, h.start = 0, direction = 1, na.value = &quot;grey50&quot;)</code></p>
+<ul>
+<li>uses hue, chroma and luminance (=value)</li>
+<li>each level of a variable is assigned a different level of h</li>
+</ul>
+</section><section id="discrete-color-schemes---brewer" class="slide level2">
+<h2>Discrete color schemes - Brewer</h2>
+<p><code>scale_colour_brewer(..., type = &quot;seq&quot;, palette = 1, direction = 1)</code></p>
+<ul>
+<li>brewer schemes are defined in RColorBrewer (Neuwirth, 2014) palettes can be specified by name or index</li>
+<li>see also <a href="http://colorbrewer2.org/" class="uri">http://colorbrewer2.org/</a> (Brewer et al 2002)</li>
+</ul>
+</section><section id="all-brewer-schemes" class="slide level2">
+<h2>All brewer schemes</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RColorBrewer)
+<span class="kw">display.brewer.all</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-33-1.png" width="768" /></p>
+</section><section id="color-and-fill" class="slide level2">
+<h2>Color and Fill</h2>
+<ul>
+<li>Area geoms (barcharts, histograms, polygons) use <code>fill</code> to map values to the fill color</li>
+<li>continuous color scales: <code>scale_fill_gradient</code>, <code>scale_fill_gradient2</code>, …</li>
+<li>discrete color scales: <code>scale_fill_hue</code>, <code>scale_fill_brewer</code>, <code>scale_fill_grey</code>, …</li>
+</ul>
+</section>
+<section id="themes" class="titleslide slide level1"><h2 class="shout">Themes</h2></section><section id="themes-1" class="slide level2">
+<h2>Themes</h2>
+<ul>
+<li>Themes allow to control every aspect of non-data related aspects of a plot</li>
+<li>Several pre-defined themes: <code>theme_grey</code> (default), <code>theme_bw</code>, <code>theme_light</code>, <code>theme_dark</code></li>
+<li>Use <code>theme_set</code> if you want it to apply a theme to every future plot, e.g. <code>theme_set(theme_bw())</code></li>
+<li><code>ggthemes</code> package defines additional themes: <code>library(help = &quot;ggthemes&quot;)</code> lists all themes</li>
+</ul>
+</section><section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span>  cty, <span class="dt">colour=</span> <span class="kw">factor</span>(class))) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p class="double">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">theme_grey</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-35-1.png" width="384" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</code></pre></div>
+<img src="R4DS_files/figure-revealjs/unnamed-chunk-36-1.png" width="384" />
+</p>
+</section><section id="example---more-themes" class="slide level2">
+<h2>Example - more themes</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> wt, <span class="dt">y =</span>  mpg, <span class="dt">colour=</span> <span class="kw">factor</span>(cyl))) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p class="double">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">theme_light</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-38-1.png" width="384" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">theme_dark</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-39-1.png" width="384" /></p>
+</p>
+</section><section id="more-themes" class="slide level2">
+<h2>More themes</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggthemes)</code></pre></div>
+<p class="double">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">theme_excel</span>() </code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-41-1.png" width="384" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">theme_fivethirtyeight</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-42-1.png" width="384" /></p>
+</p>
+</section><section id="elements" class="slide level2">
+<h2>Elements</h2>
+<ul>
+<li>You can also make your own theme, or modify an existing.</li>
+<li>Themes are made up of elements which can be one of: <code>element_line</code>, <code>element_text</code>, <code>element_rect</code>, <code>element_blank</code></li>
+<li>Gives you a lot of control over plot appearance.</li>
+</ul>
+</section><section id="elements-of-themes" class="slide level2">
+<h2>Elements of themes</h2>
+<ul>
+<li>Axis:<br />
+<code>axis.line</code>, <code>axis.text.x</code>, <code>axis.text.y</code>, <code>axis.ticks</code>, <code>axis.title.x</code>, <code>axis.title.y</code></li>
+<li>Legend:<br />
+<code>legend.background</code>, <code>legend.key</code>, <code>legend.text</code>, <code>legend.title</code></li>
+<li>Panel:<br />
+<code>panel.background</code>, <code>panel.border</code>, <code>panel.grid.major</code>, <code>panel.grid.minor</code></li>
+<li>Strip (facetting):<br />
+<code>strip.background</code>, <code>strip.text.x</code>, <code>strip.text.y</code></li>
+</ul>
+<p>for a complete overview see <code>?theme</code></p>
+</section><section id="changing-elements-manually" class="slide level2">
+<h2>Changing elements manually</h2>
+<ul>
+<li>to change an element add the theme function and specify inside:</li>
+<li>example:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mpg <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> manufacturer)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">45</span>, <span class="dt">vjust=</span><span class="dv">1</span>, <span class="dt">hjust=</span><span class="dv">1</span>))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-43-1.png" width="384" /></p>
+</section>
+<section id="drawing-maps" class="titleslide slide level1"><h2 class="shout">Drawing maps</h2></section><section id="outline-2" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li>package <code>maps</code></li>
+<li>what is a map</li>
+<li>maps and map data in ggplot</li>
+<li>drawing choropleth maps</li>
+</ul>
+</section><section id="maps-are" class="slide level2">
+<h2>Maps are …</h2>
+<div class="double">
+<p class="double-flow">
+<ul>
+<li>… points in latitude and longitude</li>
+</ul>
+<img src="R4DS_files/figure-revealjs/unnamed-chunk-44-1.png" width="288" />
+</p>
+<p class="double-flow">
+<ul>
+<li>that are connected in the ‘right’ order (determined by order in the data frame)</li>
+</ul>
+<img src="R4DS_files/figure-revealjs/unnamed-chunk-45-1.png" width="288" />
+</p>
+</div>
+</section><section id="maps" class="slide level2">
+<h2>Maps …</h2>
+<div class="double">
+<p class="double-flow">
+<ul>
+<li>use <code>group</code> parameter to distinguish between different regions</li>
+</ul>
+<img src="R4DS_files/figure-revealjs/unnamed-chunk-46-1.png" width="288" />
+</p>
+<p class="double-flow">
+<ul>
+<li>are usually filled in</li>
+</ul>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-47-1.png" width="288" /></p>
+</p>
+</div>
+</section><section id="map-data" class="slide level2">
+<h2>map data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;state&quot;</span>)
+<span class="kw">head</span>(states)</code></pre></div>
+<pre><code>##        long      lat group order  region subregion
+## 1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;
+## 2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;
+## 3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;
+## 4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;
+## 5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;
+## 6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;</code></pre>
+</section><section id="maps-in-code-1" class="slide level2">
+<h2>Maps in code (1)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-49-1.png" width="768" /></p>
+</section><section id="maps-in-code-2" class="slide level2">
+<h2>Maps in code (2)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-50-1.png" width="768" /></p>
+</section><section id="maps-in-code-3" class="slide level2">
+<h2>Maps in code (3)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-51-1.png" width="768" /></p>
+</section><section id="maps-in-code-4" class="slide level2">
+<h2>Maps in code (4)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group, <span class="dt">fill=</span>lat))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-52-1.png" width="768" /></p>
+</section><section id="your-turn-6-mins" class="slide level2 white">
+<h2>Your Turn (6 mins)</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Use ggplot2 and pull out map data for all US counties: <code>counties &lt;- map_data(&quot;county&quot;)</code> </span></li>
+<li><span style="color:white">Draw a map of counties (polygons &amp; path geom) </span></li>
+<li><span style="color:white">Colour all counties called “story” </span></li>
+<li><span style="color:white">Advanced: What county names are used often? </span></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties &lt;-<span class="st"> </span><span class="kw">map_data</span>(<span class="st">&quot;county&quot;</span>)
+counties <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-53-1.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-53-2.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties<span class="op">$</span>Story =<span class="st"> </span>(counties<span class="op">$</span>subregion <span class="op">==</span><span class="st"> &quot;story&quot;</span>) 
+counties <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">fill =</span> Story)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-53-3.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">counties <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(region, subregion) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(subregion) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(nn))</code></pre></div>
+<pre><code>## # A tibble: 1,777 x 2
+## # Groups:   subregion [1,777]
+##    subregion     nn
+##    &lt;chr&gt;      &lt;int&gt;
+##  1 washington    32
+##  2 jefferson     26
+##  3 franklin      25
+##  4 jackson       24
+##  5 lincoln       24
+##  6 madison       20
+##  7 clay          18
+##  8 montgomery    18
+##  9 union         18
+## 10 marion        17
+## # ... with 1,767 more rows</code></pre>
+</section><section id="choropleth-maps" class="slide level2">
+<h2>Choropleth maps</h2>
+<ul>
+<li>choropleth maps are thematic maps: areas are shaded in proportion to the values of a variable</li>
+<li>join datasets: content and map</li>
+</ul>
+</section><section id="join-content-and-map" class="slide level2">
+<h2>Join content and map</h2>
+<p>Content:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(fbi, <span class="dt">package=</span><span class="st">&quot;classdata&quot;</span>)
+fbi14 &lt;-<span class="st"> </span>fbi <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2014</span>)
+<span class="kw">head</span>(fbi14)</code></pre></div>
+<pre><code>##        State Abb Year Population                                 Type
+## 1    Alabama  AL 2014    4849377 Murder.and.nonnegligent.Manslaughter
+## 2     Alaska  AK 2014     736732 Murder.and.nonnegligent.Manslaughter
+## 3    Arizona  AZ 2014    6731484 Murder.and.nonnegligent.Manslaughter
+## 4   Arkansas  AR 2014    2966369 Murder.and.nonnegligent.Manslaughter
+## 5 California  CA 2014   38802500 Murder.and.nonnegligent.Manslaughter
+## 6   Colorado  CO 2014    5355866 Murder.and.nonnegligent.Manslaughter
+##   Count Violent.crime
+## 1   276          TRUE
+## 2    41          TRUE
+## 3   319          TRUE
+## 4   165          TRUE
+## 5  1699          TRUE
+## 6   151          TRUE</code></pre>
+</section><section id="join-content-and-map-1" class="slide level2">
+<h2>Join content and map</h2>
+<p>Map:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(states)</code></pre></div>
+<pre><code>##        long      lat group order  region subregion
+## 1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;
+## 2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;
+## 3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;
+## 4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;
+## 5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;
+## 6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;</code></pre>
+</section><section id="prepare-for-join" class="slide level2">
+<h2>Prepare for join</h2>
+<ul>
+<li>combine fbi and states by state name, but we need to make the spelling the same</li>
+<li>for simplification, introduce new variable with all lower case letters</li>
+<li>generally, content data is more important, but we will see missing states on the map: <code>anti_join</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fbi14<span class="op">$</span>region &lt;-<span class="st"> </span><span class="kw">tolower</span>(fbi14<span class="op">$</span>State)
+
+nomatch1 &lt;-<span class="st"> </span>fbi14 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anti_join</span>(states, <span class="dt">by=</span><span class="st">&quot;region&quot;</span>)
+<span class="co"># States for which we do not have map data</span>
+<span class="kw">unique</span>(nomatch1<span class="op">$</span>State)</code></pre></div>
+<pre><code>## [1] &quot;Alaska&quot;      &quot;Hawaii&quot;      &quot;Puerto Rico&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nomatch2 &lt;-<span class="st"> </span>states <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anti_join</span>(fbi14, <span class="dt">by=</span><span class="st">&quot;region&quot;</span>)
+<span class="co"># States for which we do not have crime data</span>
+<span class="kw">unique</span>(nomatch2<span class="op">$</span>State)</code></pre></div>
+<pre><code>## NULL</code></pre>
+</section><section id="join-and-map" class="slide level2">
+<h2>Join and Map</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fbi.map &lt;-<span class="st"> </span>fbi14 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(states, <span class="dt">by=</span><span class="st">&quot;region&quot;</span>)
+fbi.map <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Type<span class="op">==</span><span class="st">&quot;Burglary&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">fill=</span>Count<span class="op">/</span>Population<span class="op">*</span><span class="dv">70000</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group=</span>group))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-57-1.png" width="864" /></p>
+</section><section id="your-turn-7" class="slide level2 white">
+<h2>Your Turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Draw a choropleth map of the rate of motor vehicle thefts in 2012 across the US. </span></li>
+<li><span style="color:white"><code>scale_fill_gradient2</code> allows you to set a color scheme with two main colors. Read up on it and change the scheme in the first choropleth map. </span></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fbi12 &lt;-<span class="st"> </span>fbi <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2012</span>)
+fbi12<span class="op">$</span>region &lt;-<span class="st"> </span><span class="kw">tolower</span>(fbi12<span class="op">$</span>State)
+
+fbi.map12 &lt;-<span class="st"> </span>fbi12 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(states, <span class="dt">by=</span><span class="st">&quot;region&quot;</span>)
+fbi.map12 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Type<span class="op">==</span><span class="st">&quot;Motor.vehicle.theft&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">fill=</span>Count<span class="op">/</span>Population<span class="op">*</span><span class="dv">70000</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group=</span>group)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_gradient2</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-58-1.png" width="864" /></p>
+</section><section id="geographic-data-in-layers" class="slide level2">
+<h2>Geographic data in layers</h2>
+<ul>
+<li>For data collected with GPS coordinates we can use maps as background layers</li>
+<li>e.g. campaign expenditures</li>
+<li>In that situation, we do not need to join the map information and the content data, but use layers with separate data sets of the form</li>
+</ul>
+<pre><code>map %&gt;% ggplot(aes(x = long, y = lat)) + 
+  geom_polygon(aes(group = group)) +
+  geom_point(aes(x=longitude, y = latitude), data = content) </code></pre>
+</section><section id="fars-data" class="slide level2">
+<h2>FARS data</h2>
+<ul>
+<li>US Department of transportation is keeping a record of every accident that results in a fatality in the FARS Data base (fatal accident report system, <a href="http://www.nhtsa.gov/FARS" class="uri">http://www.nhtsa.gov/FARS</a>)</li>
+<li>FARS consists of 20+ tables consisting of various aspects of each accident Documentation at</li>
+<li><a href="https://www-fars.nhtsa.dot.gov/Main/index.aspx" class="uri">https://www-fars.nhtsa.dot.gov/Main/index.aspx</a></li>
+<li>three of the main tables are <code>accident</code>, <code>person</code>, and <code>vehicle</code></li>
+</ul>
+</section><section id="data" class="slide level2">
+<h2>Data</h2>
+<ul>
+<li>Data of all accidents are available at:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">acc &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/DS202-at-ISU/labs/master/data/fars2016/accident.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">names</span>(acc)</code></pre></div>
+<pre><code>##  [1] &quot;STATE&quot;      &quot;ST_CASE&quot;    &quot;VE_TOTAL&quot;   &quot;VE_FORMS&quot;   &quot;PVH_INVL&quot;  
+##  [6] &quot;PEDS&quot;       &quot;PERNOTMVIT&quot; &quot;PERMVIT&quot;    &quot;PERSONS&quot;    &quot;COUNTY&quot;    
+## [11] &quot;CITY&quot;       &quot;DAY&quot;        &quot;MONTH&quot;      &quot;YEAR&quot;       &quot;DAY_WEEK&quot;  
+## [16] &quot;HOUR&quot;       &quot;MINUTE&quot;     &quot;NHS&quot;        &quot;RUR_URB&quot;    &quot;FUNC_SYS&quot;  
+## [21] &quot;RD_OWNER&quot;   &quot;ROUTE&quot;      &quot;TWAY_ID&quot;    &quot;TWAY_ID2&quot;   &quot;MILEPT&quot;    
+## [26] &quot;LATITUDE&quot;   &quot;LONGITUD&quot;   &quot;SP_JUR&quot;     &quot;HARM_EV&quot;    &quot;MAN_COLL&quot;  
+## [31] &quot;RELJCT1&quot;    &quot;RELJCT2&quot;    &quot;TYP_INT&quot;    &quot;WRK_ZONE&quot;   &quot;REL_ROAD&quot;  
+## [36] &quot;LGT_COND&quot;   &quot;WEATHER1&quot;   &quot;WEATHER2&quot;   &quot;WEATHER&quot;    &quot;SCH_BUS&quot;   
+## [41] &quot;RAIL&quot;       &quot;NOT_HOUR&quot;   &quot;NOT_MIN&quot;    &quot;ARR_HOUR&quot;   &quot;ARR_MIN&quot;   
+## [46] &quot;HOSP_HR&quot;    &quot;HOSP_MN&quot;    &quot;CF1&quot;        &quot;CF2&quot;        &quot;CF3&quot;       
+## [51] &quot;FATALS&quot;     &quot;DRUNK_DR&quot;</code></pre>
+</section><section id="your-turn-8" class="slide level2 white">
+<h2>Your Turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<ul>
+<li><span style="color:white">Use the accident data to plot the geographic location of all accidents in the US in 2016. </span></li>
+<li><span style="color:white"> Plot accidents on a map of the US (use the map of the US as first layer) </span></li>
+<li><span style="color:white">Why would it be tricky to plot a choropleth map of the number of accidents by state? </span></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">acc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(YEAR <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>, LONGITUD <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> LONGITUD, <span class="dt">y =</span> LATITUDE)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-60-1.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> LONGITUD, <span class="dt">y =</span> LATITUDE), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">data =</span> acc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(YEAR <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>, LONGITUD <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, LONGITUD <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="dv">130</span>)) </code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-60-2.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">states <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_path</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> LONGITUD, <span class="dt">y =</span> LATITUDE), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">data =</span> acc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(YEAR <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>, LONGITUD <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, LONGITUD <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="dv">130</span>, DRUNK_DR <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> LONGITUD, <span class="dt">y =</span> LATITUDE), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&#39;blue&#39;</span>, <span class="dt">data =</span> acc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(YEAR <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>, LONGITUD <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, LONGITUD <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="dv">130</span>, DRUNK_DR <span class="op">==</span><span class="st"> </span><span class="dv">0</span>))</code></pre></div>
+<p><img src="R4DS_files/figure-revealjs/unnamed-chunk-60-3.png" width="768" /></p>
+</section>
+<section id="web-scraping-with-r" class="titleslide slide level1"><h2 class="shout">Web Scraping with R</h2></section><section id="the-rvest-package" class="slide level2">
+<h2>The <code>rvest</code> package</h2>
+<p><code>read_html</code> gets <em>all</em> the information from a URL</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rvest)
+url &lt;-<span class="st"> &quot;https://www.the-numbers.com/weekend-box-office-chart&quot;</span>
+html &lt;-<span class="st"> </span><span class="kw">read_html</span>(url)
+html</code></pre></div>
+<pre><code>## {xml_document}
+## &lt;html&gt;
+## [1] &lt;head&gt;\n&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;&lt;script ...
+## [2] &lt;body&gt;\n&lt;center&gt;\n\t&lt;/center&gt;\n\r\n\n\r\n&lt;script&gt;\r\n  window.fbAsyn ...</code></pre>
+</section><section id="get-a-table-from-an-online-source" class="slide level2">
+<h2>Get a <em>table</em> from an online source</h2>
+<p><code>html_table</code> extracts all tables from the sourced html into a list of data frames:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tables &lt;-<span class="st"> </span>html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_table</span>(<span class="dt">fill=</span><span class="ot">TRUE</span>)
+<span class="kw">length</span>(tables)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</section><section id="lists" class="slide level2">
+<h2>Lists</h2>
+<ul>
+<li>are most general form of objects in R</li>
+<li><code>length()</code> accesses the number of items in a list</li>
+<li><code>[[ ]]</code> accesses each item</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(tables[[<span class="dv">1</span>]])</code></pre></div>
+<pre><code>## [1] 1 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(tables[[<span class="dv">2</span>]])</code></pre></div>
+<pre><code>## [1] 67 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(tables[[<span class="dv">2</span>]])</code></pre></div>
+<pre><code>##                                Movie        Distributor       Gross Change
+## 1 1 (1)                      Aquaman       Warner Bros. $52,114,571   -23%
+## 2 2 (2)         Mary Poppins Returns        Walt Disney $28,353,117   +21%
+## 3 3 (3)                    Bumblebee Paramount Pictures $20,906,146    -3%
+## 4 4 (4) Spider-Man: Into The Spider…      Sony Pictures $18,794,532   +14%
+## 5 5 (5)                     The Mule       Warner Bros. $12,162,024   +28%
+## 6 6 new                         Vice Annapurna Pictures  $7,768,371       
+##   Thtrs. Per Thtr.  Total Gross Week
+## 1  4,125   $12,634 $189,048,186    2
+## 2  4,090    $6,932  $99,263,875    2
+## 3  3,550    $5,889  $67,184,166    2
+## 4  3,813    $4,929 $104,123,262    3
+## 5  2,787    $4,364  $61,109,209    3
+## 6  2,442    $3,181  $17,674,487    1</code></pre>
+</section><section id="section-4" class="slide level2">
+<h2></h2>
+<p>Most tables need a bit of clean-up:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(tables[[<span class="dv">2</span>]])</code></pre></div>
+<pre><code>##  [1] &quot;&quot;            &quot;&quot;            &quot;Movie&quot;       &quot;Distributor&quot; &quot;Gross&quot;      
+##  [6] &quot;Change&quot;      &quot;Thtrs.&quot;      &quot;Per Thtr.&quot;   &quot;Total Gross&quot; &quot;Week&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(tables[[<span class="dv">2</span>]])[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rank&quot;</span>, <span class="st">&quot;Rank.Last.Week&quot;</span>)
+<span class="kw">str</span>(tables[[<span class="dv">2</span>]])</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    67 obs. of  10 variables:
+##  $ Rank          : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Rank.Last.Week: chr  &quot;(1)&quot; &quot;(2)&quot; &quot;(3)&quot; &quot;(4)&quot; ...
+##  $ Movie         : chr  &quot;Aquaman&quot; &quot;Mary Poppins Returns&quot; &quot;Bumblebee&quot; &quot;Spider-Man: Into The Spider…&quot; ...
+##  $ Distributor   : chr  &quot;Warner Bros.&quot; &quot;Walt Disney&quot; &quot;Paramount Pictures&quot; &quot;Sony Pictures&quot; ...
+##  $ Gross         : chr  &quot;$52,114,571&quot; &quot;$28,353,117&quot; &quot;$20,906,146&quot; &quot;$18,794,532&quot; ...
+##  $ Change        : chr  &quot;-23%&quot; &quot;+21%&quot; &quot;-3%&quot; &quot;+14%&quot; ...
+##  $ Thtrs.        : chr  &quot;4,125&quot; &quot;4,090&quot; &quot;3,550&quot; &quot;3,813&quot; ...
+##  $ Per Thtr.     : chr  &quot;$12,634&quot; &quot;$6,932&quot; &quot;$5,889&quot; &quot;$4,929&quot; ...
+##  $ Total Gross   : chr  &quot;$189,048,186&quot; &quot;$99,263,875&quot; &quot;$67,184,166&quot; &quot;$104,123,262&quot; ...
+##  $ Week          : int  2 2 2 3 3 1 1 2 6 8 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">box &lt;-<span class="st"> </span>tables[[<span class="dv">2</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(
+  <span class="dt">Gross =</span> <span class="kw">parse_number</span>(Gross),
+  <span class="dt">Thtrs. =</span> <span class="kw">parse_number</span>(Thtrs.)
+)
+<span class="kw">head</span>(box)</code></pre></div>
+<pre><code>##   Rank Rank.Last.Week                        Movie        Distributor
+## 1    1            (1)                      Aquaman       Warner Bros.
+## 2    2            (2)         Mary Poppins Returns        Walt Disney
+## 3    3            (3)                    Bumblebee Paramount Pictures
+## 4    4            (4) Spider-Man: Into The Spider…      Sony Pictures
+## 5    5            (5)                     The Mule       Warner Bros.
+## 6    6            new                         Vice Annapurna Pictures
+##      Gross Change Thtrs. Per Thtr.  Total Gross Week
+## 1 52114571   -23%   4125   $12,634 $189,048,186    2
+## 2 28353117   +21%   4090    $6,932  $99,263,875    2
+## 3 20906146    -3%   3550    $5,889  $67,184,166    2
+## 4 18794532   +14%   3813    $4,929 $104,123,262    3
+## 5 12162024   +28%   2787    $4,364  $61,109,209    3
+## 6  7768371          2442    $3,181  $17,674,487    1</code></pre>
+</section><section id="your-turn-6-mins-1" class="slide level2 white">
+<h2>Your Turn (6 mins)</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<p><span style="color:white">Connect to the The-Numbers website for weekly boxoffice gross at <a href="https://www.the-numbers.com/weekend-box-office-chart" class="uri">https://www.the-numbers.com/weekend-box-office-chart</a> </span></p>
+<ul>
+<li><span style="color:white">Pick the week that you were last in the movies. </span></li>
+<li><span style="color:white">Use <code>rvest</code> to download the box office gross in that week. </span></li>
+<li><span style="color:white">Clean up the data (name all the variables, numbers should be numbers). </span></li>
+</ul>
+</section><section id="beyond-tables" class="slide level2">
+<h2>Beyond tables</h2>
+<p>Sometimes data on the web is not structured as nicely … e.g. let’s assume we want to get a list of all recently active baseball players from <a href="http://www.baseball-reference.com/players/">Baseball reference</a></p>
+</section><section id="cascading-style-sheets-css" class="slide level2">
+<h2>Cascading Style Sheets (CSS)</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">css</a> is a language that describes the style of an HTML document.</li>
+</ul>
+<p><img src="images/css-selectors-lrg.png" height=100, width=600></p>
+<ul>
+<li>Example: (<a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_default" class="uri">https://www.w3schools.com/css/tryit.asp?filename=trycss_default</a>)</li>
+<li>play <a href="http://flukeout.github.io/">the game</a></li>
+</ul>
+</section><section id="selectorgadget" class="slide level2">
+<h2>SelectorGadget</h2>
+<ul>
+<li>SelectorGadget is a javascript bookmarklet to determine the <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">css</a> selectors of pieces of a website we want to extract.</li>
+<li>Read up on the <a href="http://selectorgadget.com/">SelectorGadget</a> link: install it for your machine by installing the Chrome extension, then click on it to use it.</li>
+<li>When SelectorGadget is active, pieces of the website are highlighted in orange/green/red.</li>
+<li>Use SelectorGadget on <a href="http://www.baseball-reference.com/players/" class="uri">http://www.baseball-reference.com/players/</a>.</li>
+<li>read more details on <code>vignette(&quot;selectorgadget&quot;)</code></li>
+</ul>
+</section><section id="selectorgadget-result" class="slide level2">
+<h2>SelectorGadget Result</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &quot;http://www.baseball-reference.com/players/a/&quot;</span>
+html &lt;-<span class="st"> </span><span class="kw">read_html</span>(url)
+html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;#div_players_ a&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</code></pre></div>
+<pre><code>## {xml_nodeset (6)}
+## [1] &lt;a href=&quot;/players/a/aardsda01.shtml&quot;&gt;David Aardsma&lt;/a&gt;
+## [2] &lt;a href=&quot;/players/a/aaronha01.shtml&quot;&gt;Hank Aaron&lt;/a&gt;
+## [3] &lt;a href=&quot;/players/a/aaronto01.shtml&quot;&gt;Tommie Aaron&lt;/a&gt;
+## [4] &lt;a href=&quot;/players/a/aasedo01.shtml&quot;&gt;Don Aase&lt;/a&gt;
+## [5] &lt;a href=&quot;/players/a/abadan01.shtml&quot;&gt;Andy Abad&lt;/a&gt;
+## [6] &lt;a href=&quot;/players/a/abadfe01.shtml&quot;&gt;Fernando Abad&lt;/a&gt;</code></pre>
+</section><section id="example-1" class="slide level2">
+<h2>Example</h2>
+<p>We want to get access to pieces of the links:</p>
+<p><code>html_text</code> allows us to get text out, <code>html_attr</code> let’s us access an attribute of an html node, <code>html_attrs</code> extracts all attributes of an html node:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;#div_players_ a&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_text</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</code></pre></div>
+<pre><code>## [1] &quot;David Aardsma&quot; &quot;Hank Aaron&quot;    &quot;Tommie Aaron&quot;  &quot;Don Aase&quot;     
+## [5] &quot;Andy Abad&quot;     &quot;Fernando Abad&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;#div_players_ a&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_attr</span>(<span class="dt">name=</span><span class="st">&quot;href&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>()</code></pre></div>
+<pre><code>## [1] &quot;/players/a/aardsda01.shtml&quot; &quot;/players/a/aaronha01.shtml&quot;
+## [3] &quot;/players/a/aaronto01.shtml&quot; &quot;/players/a/aasedo01.shtml&quot; 
+## [5] &quot;/players/a/abadan01.shtml&quot;  &quot;/players/a/abadfe01.shtml&quot;</code></pre>
+</section><section id="how-to-use-the-href" class="slide level2">
+<h2>How to use the href?</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">h1 =<span class="st"> </span>html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;#div_players_ a&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_attr</span>(<span class="dt">name=</span><span class="st">&quot;href&quot;</span>)
+<span class="kw">length</span>(h1)</code></pre></div>
+<pre><code>## [1] 593</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">h1[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;/players/a/aardsda01.shtml&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">h0 =<span class="st"> &quot;http://www.baseball-reference.com&quot;</span>
+url.player =<span class="st"> </span><span class="kw">paste</span>(h0, h1[<span class="dv">1</span>], <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+url.player</code></pre></div>
+<pre><code>## [1] &quot;http://www.baseball-reference.com/players/a/aardsda01.shtml&quot;</code></pre>
+</section><section id="your-turn-9" class="slide level2 white">
+<h2>Your Turn</h2>
+<p><img class="cover" src="images/blue.jpeg" alt="" width=2000></p>
+<p><span style="color:white">Use the SelectorGadget on the website for <a href="http://www.baseball-reference.com/players/a/aardsda01.shtml">David Aardsma</a> </span></p>
+<ul>
+<li><span style="color:white">Find the css description to extract his career statistics and load them into your R session. </span></li>
+<li><span style="color:white">Does the same code work to extract career statistics for (some of) the other players? </span></li>
+<li><span style="color:white">What other information do we need to know? and how can we get to that? </span></li>
+</ul>
+</section><section id="your-turn---solution" class="slide level2">
+<h2>Your Turn - Solution</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &quot;http://www.baseball-reference.com/players/a/aardsda01.shtml&quot;</span>
+html &lt;-<span class="st"> </span><span class="kw">read_html</span>(url)
+<span class="co"># good first start, but not good for further processing</span>
+h2 =<span class="st"> </span>html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;.stats_pullout p , h4&quot;</span>)
+
+h3 =<span class="st"> </span>html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;.p3 p , .p2 p , .p1 p , .stats_pullout strong , h4&quot;</span>)</code></pre></div>
+</section><section id="your-turn---solution-2" class="slide level2">
+<h2>Your Turn - Solution (2)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># better: pull out individual vectors</span>
+html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;h4&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_text</span>()</code></pre></div>
+<pre><code>##  [1] &quot;SUMMARY&quot; &quot;WAR&quot;     &quot;W&quot;       &quot;L&quot;       &quot;ERA&quot;     &quot;G&quot;       &quot;GS&quot;     
+##  [8] &quot;SV&quot;      &quot;IP&quot;      &quot;SO&quot;      &quot;WHIP&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">html <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_nodes</span>(<span class="st">&quot;.stats_pullout p&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">html_text</span>() </code></pre></div>
+<pre><code>##  [1] &quot;Career&quot; &quot;1.7&quot;    &quot;16&quot;     &quot;18&quot;     &quot;4.27&quot;   &quot;331&quot;    &quot;0&quot;     
+##  [8] &quot;69&quot;     &quot;337.0&quot;  &quot;340&quot;    &quot;1.421&quot;</code></pre>
+</section>
+
+  <!--
+  To hide progress bar from entire presentation
+  just remove “progress” element.
+  -->
+  <!-- <div class="progress"></div> -->
+  <script src="R4DS_files/rmdshower/node_modules/shower/node_modules/shower-core/shower.min.js"></script>
+  <!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+  <!-- Photos by John Carey, fiftyfootshadows.net -->
+
+    <script>renderMathInElement(document.body);</script>
+  
+  
+</body>
+</html>
